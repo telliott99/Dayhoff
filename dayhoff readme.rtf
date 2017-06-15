@@ -1,0 +1,55 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+\cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11220\viewh13640\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs36 \cf0 What Dayhoff et al did\
+\
+took 71 groups of closely related proteins known in 1978\
+observed 1572 aa changes in these groups\
+inferred ancestral sequences\
+i.e., given a tree (how made?) (ACGH, DBGH), (ADIJ, CBIJ)\
+infer ancestral sequences (ABGH, ABIJ)\
+how?  not said, but probably parsimony\
+\
+ABGH -> ACGH and DBGH, so A -> D and B -> C\
+ABIJ -> ADIJ and CBIJ, so A -> C and B -> D\
+first ancestor not given but changes are G <-> I and J <-> H\
+\
+from this, make a table where AC and CA both get 1, etc.\
+note that CD is 0, even though same position (2) has C and D\
+because it is inferred that the change was not direct, from the tree\
+\
+I entered this data as dayhoff.changes.txt\
+there is some ambiguity b/c I don't have an original copy and some\
+figures in the pdf aren't clear.\
+\
+-------------------------------------------------\
+\
+The second thing is to just count the frequencies of the amino acids\
+in the original data (which aren't directly specified here).\
+They give this data and I entered it as dayhoff.frequencies.txt\
+These are normalized frequencies (total = 1).\
+So they are probabilities.\
+\
+Next 
+\b mutability
+\b0  is calculated for each amino acid as the 
+\b sum of all changes involving that amino acid in the first table divided by the frequency
+\b0  of the amino acid.  This value is again normalized, so that A has mutability = 100.\
+\
+Then we go back to the first table again and for each value divide by the sum of all changes for the amino acid then multiply by the mutability x 1.33.\
+\
+-------------------------------------------------\
+\
+This seems a little circular...\
+\
+mutability = sum of changes  /  frequency\
+new value = old value x mutability / sum of changes\
+isn't new value = old value / frequency x 1.33??\
+\
+I didn't get this figured out yet....\
+(Except for the normalization factor above where A gets mutability = 100)\
+}

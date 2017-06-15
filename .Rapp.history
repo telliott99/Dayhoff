@@ -1,0 +1,6 @@
+setwd('Desktop/Dayhoff')#
+m <- read.table('PAM1.txt',head=T)#
+#m = as.matrix(m)#
+rownames(m) = colnames(m)#
+m#
+m <- m/10000
