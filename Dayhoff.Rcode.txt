@@ -6,13 +6,9 @@ rownames(m) = colnames(m)
 m <- m/10000
 
 n <- m %*% m
-m250 <- for (i in 1:249) { n <- n %*% m }
-
-# order does not matter !
-m250 <- for (i in 1:249) { n <- m %*% n }
-
-round(m250*100,0)
-
+for (i in 1:249) { n <- n %*% m }
+m250 <- n
+round(m250*100,0)  # matches Fig 83
 
 f <- read.table('dayhoff.frequencies.v2.txt', head=F)
 f <- t(f)

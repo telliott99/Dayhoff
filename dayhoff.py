@@ -1,5 +1,5 @@
 import sys
-FH = open('dayhoff.fig80.txt', 'r')
+FH = open('data/dayhoff.fig80.txt', 'r')
 data = FH.read().strip().split('\n')
 FH.close()
 
@@ -64,7 +64,7 @@ def show():
 # aa frequency data from the paper
 # in order from most to least frequent
 
-FH = open('dayhoff.frequencies.txt', 'r')
+FH = open('data/dayhoff.frequencies.txt', 'r')
 data = FH.read().split('\n')
 FH.close()
 
@@ -74,12 +74,15 @@ def getFreq(aa):
         if aa == line[0]:
             return float(line.split()[1])
 freq = [getFreq(aa) for aa in aaL]
- 
-# write to a file for help with R code
-FH = open('dayhoff.frequencies.v2.txt', 'w')
-L = [str(freq[i]) for i in range(20)]
-FH.write('\t'.join(L) + '\n')
-FH.close()
+
+def write_freq():
+    # write to a file for help with R code
+    FH = open('dayhoff.frequencies.v2.txt', 'w')
+    L = [str(freq[i]) for i in range(20)]
+    FH.write('\t'.join(L) + '\n')
+    FH.close()
+
+# write_freq()
  
 #--------------------------------------------
 
@@ -105,7 +108,7 @@ def show2():
 # we've shown we can get close to their values
 # for "mutability", now we'll actually use theirs
 
-FH = open('dayhoff.mutabilities.txt', 'r')
+FH = open('data/dayhoff.mutabilities.txt', 'r')
 data = FH.read().split('\n')
 FH.close()
 L = [e.split('\t') for e in data]
@@ -169,16 +172,6 @@ for aa2 in aaL:
 FH.write('\n'.join(lines))
    
     
-'''
-R code:
-setwd('Desktop/Dayhoff')
-m <- read.table('PAM1.txt',head=T)
-#m = as.matrix(m)
-rownames(m) = colnames(m)
-m
-m <- m/10000
-'''
-
 
 
 
