@@ -128,7 +128,6 @@ L = [D[aa] for aa in aaL]
 PAM1 = dict()
 
 for oldAA in aaL:
-    total = 0
     for k in changeD:
          # order doesn't matter here, pick k[0]
         if not k[0] == oldAA:   continue
@@ -144,10 +143,13 @@ for oldAA in aaL:
         value = K * mut * nchanges / S
         # print k, nchanges, S, mut,'%3.2f' % value
         # print '%3.2f' % ((K * nchanges) / (418.85 * freq[j]))
-        total += value
-        PAM1[k] = int(round(value))
+        
+        value = int(round(value))
+        PAM1[k] = int(value)
+      
+    tmp = [aa for aa in aaL if not aa == oldAA]
+    total = sum([PAM1[oldAA+aa] for aa in tmp])
     PAM1[oldAA+oldAA] = 10000 - int(total)
-
 
 print ' ' + ''.join([aa.rjust(5) for aa in aaL])
 print
