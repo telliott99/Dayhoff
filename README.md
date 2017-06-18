@@ -123,15 +123,15 @@ As [described](screenshots/computation.png) in the paper, the off-diagonal entri
 
 The original amino acids are specified in the columns (amino acid j), and the replacement amino acids are rows (amino acid i).
 
-The first step in computation of the ij-th entry in PAM1 from the ij-th entry in Fig 80 is to form the ratio A_ij/sum over i(Aij).  This is the ratio of observed changes involving amino acid i and j, divided by all changes involving amino acid j.
+The first step in computation of the ij-th entry in PAM1 from the ij-th entry in Fig 80 is to form the ratio A<sub>ij</sub> / &Sigma;<sub>i</sub> A <sub>ij</sub>.  This is the ratio of observed changes involving amino acid i and j, divided by all changes involving amino acid j.
 
-An additional factor is the mutability of amino acid j.  This seems kind of strange, since the mutability is sum over i(Aij) divided by the frequency of j, fj.  In other words, sum over i(Aij) cancels, leaving Aij/fj.
+An additional factor is the mutability of amino acid j.  This seems kind of strange, since the mutability is &Sigma;<sub>i</sub> A <sub>ij</sub> divided by the frequency of j, f<sub>j</sub>.  In other words, &Sigma;<sub>i</sub> A <sub>ij</sub> cancels, leaving A<sub>ij</sub> / f<sub>j</sub>.
 
-The last factor is a proportionality constant, &lambda;, that is the same for all columns.
+The last factor is a proportionality constant, &lambda;, which is the same for all columns.
 
 > The quantity 100 X Zfi Mii gives the number of amino acids that will remain unchanged when a protein 100 links long, of average composition, is exposed to the evolutionary change represented by this matrix. This apparent evolutionary change depends upon the choice of X, in this case ,chosen so that this change is 1 mutation. Since there are almost no superimposed changes, this also represents 1 PAM of change. If h had been four times as large, the initial matrix would have represented 4 PAMs;  the discussion which follows would not be changed appreciably.
 
-I didn't proof this carefully.  There are some differences which seem to be contained to the diagonal.  The on-diagonal values should be 10000 minus the sum of the rest of that column.
+I didn't proof this carefully.  There are some differences which seem to be contained to the diagonal.  The on-diagonal values are supposed to be 10000 minus the sum of the rest of that column.
 
 #### Continuing
 
