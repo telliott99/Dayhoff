@@ -101,20 +101,20 @@ I'm not sure of the reason for this, but we've shown we can get very close to th
 
 The last step of this first part of the analysis is to generate the file [PAM1.txt](data/PAM1.txt), which should be compared with [Fig 82](screenshots/Dayhoff Fig 82.png) of the text.
 
-> An element of this matrix, Mij, gives the probability that the amino acid in column j will be replaced by the amino acide in row i after a given evolutionary interval, in this case 1 PAM
+> An element of this matrix, Mij, gives the probability that the amino acid in column j will be replaced by the amino acide in row i after a given evolutionary interval, in this case 1 PAM.
 > 
 
 As [described](screenshots/computation.png) in the paper, the off-diagonal entries in the PAM1 matrix are computed from the data in Fig 80.  
 
 The original amino acids are specified in the columns (amino acid j), and the replacement amino acids are rows (amino acid i).
 
-The first step in computation of the ij-th entry in PAM1 from the ij-th entry in Fig 80 is to form the ratio Aij/sum over i(Aij).  This is the ratio of observed changes involving amino acid i and j, divided by all changes involving amino acid j.
+The first step in computation of the ij-th entry in PAM1 from the ij-th entry in Fig 80 is to form the ratio A_ij/sum over i(Aij).  This is the ratio of observed changes involving amino acid i and j, divided by all changes involving amino acid j.
 
-An additional factor is the mutability of amino acid j.  This seems kind of strange, since the mutability is sum over i(Aij) divided by the frequency of j, fj.  In other words, sum over i(Aij) cancels, leaving Aij/fj
+An additional factor is the mutability of amino acid j.  This seems kind of strange, since the mutability is sum over i(Aij) divided by the frequency of j, fj.  In other words, sum over i(Aij) cancels, leaving Aij/fj.
 
 The last factor is a proportionality constant, &lambda;, that is the same for all columns.
 
-> The quantity 100 X ZfiMii gives the number of amino acids that will remain unchanged when a protein 100 links long, of average composition, is exposed to theevolu- tionary change represented by this matrix. This apparent evolutionary change depends upon thechoice of X, in this case ,chosen so that this change is 1 mutation. Since there are almost no superimposedchanges, this alsorepresents 1 PAM of change. If h hadbeen four times as large, the initial matrix would have represented 4 PAMs;  the discussion which follows would not be changed appreciably.
+> The quantity 100 X Zfi Mii gives the number of amino acids that will remain unchanged when a protein 100 links long, of average composition, is exposed to the evolutionary change represented by this matrix. This apparent evolutionary change depends upon the choice of X, in this case ,chosen so that this change is 1 mutation. Since there are almost no superimposed changes, this also represents 1 PAM of change. If h had been four times as large, the initial matrix would have represented 4 PAMs;  the discussion which follows would not be changed appreciably.
 
 I didn't proof this carefully, but there are some differences, which are small, and I believe are contained to the diagonal.  The on-diagonal values should be 10000 minus the sum of the rest of that column.  The error is in my code.  I believe the problem is that I computed the total of the other entries before rounding the result.  They rounded the entries, then computed the total to subtract from 10000.
 
