@@ -127,6 +127,8 @@ The first step in computation of the ij-th entry in PAM1 from the ij-th entry in
 
 An additional factor is the mutability of amino acid j.  This seems kind of strange, since the mutability is &Sigma;<sub>i</sub> A <sub>ij</sub> divided by the frequency of j, f<sub>j</sub>.  In other words, &Sigma;<sub>i</sub> A <sub>ij</sub> cancels, leaving A<sub>ij</sub> / f<sub>j</sub>.
 
+$\sum_i A_{ij}$
+
 The last factor is a proportionality constant, &lambda;, which is the same for all columns.
 
 > The quantity 100 X Zfi Mii gives the number of amino acids that will remain unchanged when a protein 100 links long, of average composition, is exposed to the evolutionary change represented by this matrix. This apparent evolutionary change depends upon the choice of X, in this case ,chosen so that this change is 1 mutation. Since there are almost no superimposed changes, this also represents 1 PAM of change. If h had been four times as large, the initial matrix would have represented 4 PAMs;  the discussion which follows would not be changed appreciably.
