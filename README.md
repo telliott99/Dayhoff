@@ -1,6 +1,6 @@
 ### Dayhoff and the origin of PAM matrices
 
-I was notified by email about a comment on an old [post](http://telliott99.blogspot.com/2008/08/pam-point-accepted-mutation.html)  (from 2008).  In the post, I discussed PAM matrices and Margaret Dayhoff.
+I was notified by email about a comment on an old [post](http://telliott99.blogspot.com/2008/08/pam-point-accepted-mutation.html) from 2008.  There, I discussed PAM matrices and Margaret Dayhoff.
 
 As with all the old posts, the original linked files disappeared from Apple's servers long ago, but I was able to dig out archived material from an old disk drive to look for files related to Dayhoff.
 
@@ -126,8 +126,6 @@ The original amino acids are specified in the columns (amino acid j), and the re
 The first step in computation of the ij-th entry in PAM1 from the ij-th entry in Fig 80 is to form the ratio A<sub>ij</sub> / &Sigma;<sub>i</sub> A <sub>ij</sub>.  This is the ratio of observed changes involving amino acid i and j, divided by all changes involving amino acid j.
 
 An additional factor is the mutability of amino acid j.  This seems kind of strange, since the mutability is &Sigma;<sub>i</sub> A <sub>ij</sub> divided by the frequency of j, f<sub>j</sub>.  In other words, &Sigma;<sub>i</sub> A <sub>ij</sub> cancels, leaving A<sub>ij</sub> / f<sub>j</sub>.
-
-$\sum_i A_{ij}$
 
 The last factor is a proportionality constant, &lambda;, which is the same for all columns.
 
